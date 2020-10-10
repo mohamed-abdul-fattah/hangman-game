@@ -18,8 +18,8 @@ defmodule Dictionary do
   end
 
   defp word_list do
-    "assets/words.txt"
-    |> Path.expand
+    "../assets/words.txt"
+    |> Path.expand(__DIR__)
     |> File.read!
     |> String.split(~r/\n/)
   end
