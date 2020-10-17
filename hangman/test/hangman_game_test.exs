@@ -38,4 +38,23 @@ defmodule HangmanGameTest do
     { game, _tally } = game |> Game.make_move("x")
     assert game.game_state == :already_used
   end
+
+  test "a good guess is recognized" do
+    { game, _tally } = Game.init("Mohamed") |> Game.make_move("M")
+    assert game.game_state  == :good_guess
+    assert game.trials_left == 7
+  end
+
+  test "a guessed game is a won game" do
+    game = Game.init("Lol")
+    { game, _tally } = Game.make_move(game, "L")
+    assert game.game_state  == :good_guess
+    assert game.trials_left == 7
+    { game, _tally } = Game.make_move(game, "o")
+    assert game.game_state  == :good_guess
+    assert game.trials_left == 7
+    { game, _tally } = Game.make_move(game, "l")
+    assert game.game_state  == :won
+    assert game.trials_left == 7
+  end
 end
