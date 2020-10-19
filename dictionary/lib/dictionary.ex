@@ -1,26 +1,5 @@
 defmodule Dictionary do
-  @moduledoc """
-  Documentation for `Dictionary`.
-  Dictionary module is used to generate random words
-  """
+  alias Dictionary.WordList
 
-  @doc """
-  `random_word` function returns a random word from a list of
-  words in the assets/words.txt file
-
-  ## Examples
-      iex(1)> Dictionary.random_word()
-      #=> "cancer"
-  """
-  def random_word do
-    word_list()
-    |> Enum.random
-  end
-
-  defp word_list do
-    "../assets/words.txt"
-    |> Path.expand(__DIR__)
-    |> File.read!
-    |> String.split(~r/\n/)
-  end
+  defdelegate random_word(), to: WordList
 end
