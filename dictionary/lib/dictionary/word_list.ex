@@ -1,7 +1,12 @@
 defmodule Dictionary.WordList do
+    @proc_name __MODULE__
+
     def random_word() do
-        word_list()
-        |> Enum.random
+        Agent.get(@proc_name, &Enum.random/1)
+    end
+
+    def start_link() do
+        Agent.start_link(&word_list/0, name: @proc_name)
     end
 
     defp word_list do
