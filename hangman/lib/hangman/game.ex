@@ -25,9 +25,10 @@ defmodule Hangman.Game do
 
     def tally(game) do
         %{
-            game_state: game.game_state,
-            turns_left: game.trials_left,
-            letters:    reveal_letters(game.letters, game.used)
+            game_state:   game.game_state,
+            turns_left:   game.trials_left,
+            letters:      reveal_letters(game.letters, game.used),
+            game_service: game
         }
     end
 

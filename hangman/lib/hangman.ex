@@ -2,7 +2,8 @@ defmodule Hangman do
   alias Hangman.Server
 
   def new_game() do
-    Server.start_link
+    {:ok, pid} = Supervisor.start_child(Hangman.Supervisor, [])
+    pid
   end
 
   def new_game(word) do
