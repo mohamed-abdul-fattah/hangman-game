@@ -3,7 +3,7 @@ defmodule HangmanTest do
   doctest Hangman
 
   test "Hangman game can start a new game" do
-    assert { :ok, pid } = Hangman.new_game
+    assert pid = Hangman.new_game
   end
 
   test "Hangman game can guess a good guess" do
