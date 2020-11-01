@@ -1,3 +1,3 @@
-defmodule GallowsWeb.PageView do
+defmodule GallowsWeb.HangmanView do
   use GallowsWeb, :view
 end

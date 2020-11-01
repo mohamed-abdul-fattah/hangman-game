@@ -1,4 +1,4 @@
-defmodule GallowsWeb.PageController do
+defmodule GallowsWeb.HangmanController do
   use GallowsWeb, :controller
 
   def index(conn, _params) do
