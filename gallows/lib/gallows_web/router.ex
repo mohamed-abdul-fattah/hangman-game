@@ -17,6 +17,8 @@ defmodule GallowsWeb.Router do
     pipe_through :browser
 
     get "/", HangmanController, :index
+    post "/", HangmanController, :store
+    post "/guess", HangmanController, :guess
   end
 
   # Other scopes may use custom stacks.
