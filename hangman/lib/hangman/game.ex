@@ -28,6 +28,7 @@ defmodule Hangman.Game do
             game_state:   game.game_state,
             turns_left:   game.trials_left,
             letters:      reveal_letters(game.letters, game.used),
+            used:         game.used,
             game_service: game
         }
     end
