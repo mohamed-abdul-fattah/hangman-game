@@ -11,19 +11,19 @@ defmodule Hangman.Server do
   end
 
   def init(nil) do
-    { :ok, Game.init }
+    {:ok, Game.init()}
   end
 
   def init(word) do
-    { :ok, Game.init(word) }
+    {:ok, Game.init(word)}
   end
 
-  def handle_call({ :guess, guess }, _from, game) do
+  def handle_call({:guess, guess}, _from, game) do
     game = Game.make_move(game, guess)
-    { :reply, Game.tally(game), game }
+    {:reply, Game.tally(game), game}
   end
 
-  def handle_call({ :tally }, _from, game) do
-    { :reply, Game.tally(game), game }
+  def handle_call({:tally}, _from, game) do
+    {:reply, Game.tally(game), game}
   end
 end

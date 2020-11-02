@@ -21,7 +21,7 @@ defmodule TextClient.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      { :hangman, path: "../hangman" }
+      {:hangman, path: "../hangman"}
     ]
   end
 end

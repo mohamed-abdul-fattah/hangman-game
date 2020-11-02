@@ -2,14 +2,14 @@ defmodule GallowsWeb.HangmanView do
   use GallowsWeb, :view
 
   @states %{
-    won:           { :success, "You won!" },
-    lost:          { :danger, "You lost!" },
-    good_guess:    { :success, "Good guess!" },
-    bad_guess:     { :warning, "Bad guess!" },
-    already_used:  { :info, "You already guessed that!" }
+    won: {:success, "You won!"},
+    lost: {:danger, "You lost!"},
+    good_guess: {:success, "Good guess!"},
+    bad_guess: {:warning, "Bad guess!"},
+    already_used: {:info, "You already guessed that!"}
   }
 
-  def word_so_far(tally = %{ letters: _list }) do
+  def word_so_far(tally = %{letters: _list}) do
     tally.letters |> Enum.join(" ")
   end
 
@@ -35,6 +35,7 @@ defmodule GallowsWeb.HangmanView do
   end
 
   defp alert(nil), do: ""
+
   defp alert({class, msg}) do
     """
       <div class="alert alert-#{class}">#{msg}</div>

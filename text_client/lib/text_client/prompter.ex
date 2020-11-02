@@ -8,18 +8,21 @@ defmodule TextClient.Prompter do
 
   defp check_input({:erorr, reason}, _) do
     IO.puts("Game ended: #{reason}")
-    exit :normal
+    exit(:normal)
   end
 
   defp check_input(:eof, _) do
     IO.puts("Looks like you've gave up")
-    exit :normal
+    exit(:normal)
   end
 
   defp check_input(input, game = %State{}) do
     input = String.trim(input)
+
     cond do
-      input =~ ~r/\A[a-z]\z/ -> Map.put(game, :guess, input)
+      input =~ ~r/\A[a-z]\z/ ->
+        Map.put(game, :guess, input)
+
       true ->
         IO.puts("Please, enter a lowercase letter!")
         prompt(game)

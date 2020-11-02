@@ -11,10 +11,10 @@ defmodule Hangman do
   end
 
   def guess(game_pid, guess) do
-    GenServer.call(game_pid, { :guess, guess })
+    GenServer.call(game_pid, {:guess, guess})
   end
 
   def tally(game_pid) do
-    GenServer.call(game_pid, { :tally })
+    GenServer.call(game_pid, {:tally})
   end
 end
